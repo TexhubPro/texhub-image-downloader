@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <img src="../../icons/icon48.png" alt="TexHub">
+          <h1>TexHub Image Downloader</h1>
+        </div>
+        <span class="badge" id="count">0</span>
+      </div>
+    </header>
+
+    <!-- Toolbar: filter + sort -->
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search" placeholder="Filter by URL…" autocomplete="off">
+      </div>
+      <select id="sizeFilter" title="Filter by size">
+        <option value="all">All sizes</option>
+        <option value="large">Large (≥ 640px)</option>
+        <option value="medium">Medium (200–640px)</option>
+        <option value="small">Small (&lt; 200px)</option>
+      </select>
+      <select id="sortBy" title="Sort">
+        <option value="largest">Largest first</option>
+        <option value="smallest">Smallest first</option>
+        <option value="page">Page order</option>
+      </select>
+    </div>
+
+    <!-- Bulk actions -->
+    <div class="actions">
+      <label class="select-all">
+        <input type="checkbox" id="selectAll">
+        <span id="selectAllLabel">Select all</span>
+      </label>
+      <button class="primary-btn" id="downloadSel" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span id="downloadSelLabel">Download selected</span>
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid" id="grid" style="display:none"></div>
+
+    <!-- States -->
+    <div class="state" id="loadingState">
+      <div class="spinner"></div>
+      <p>Scanning page for images…</p>
+    </div>
+    <div class="state" id="emptyState" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+      </svg>
+      <p>No images found</p>
+      <span>Try scrolling the page to load more, then reopen.</span>
+    </div>
+  </div>
+
+  <script src="../shared/utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

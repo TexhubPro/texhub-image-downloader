@@ -1,0 +1,293 @@
+/* =============================================
+   TexHub Image Downloader — Popup Styles
+   Dark theme with orange accent
+   ============================================= */
+
+:root {
+  --bg-primary:   #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary:  #21262d;
+  --border:       #30363d;
+  --accent:       #f09018;
+  --accent-hover: #d97e10;
+  --accent-light: rgba(240, 144, 24, .12);
+  --text-primary:   #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary:  #484f58;
+  --success: #10b981;
+  --error:   #ef4444;
+  --radius:    8px;
+  --radius-sm: 6px;
+  --radius-xs: 4px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 440px;
+  height: 560px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+.app { display: flex; flex-direction: column; height: 560px; overflow: hidden; }
+
+/* ── Header ── */
+
+.header {
+  flex: 0 0 auto;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(240,144,24,.08), rgba(240,144,24,.05));
+}
+.header-content { display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 9px; }
+.logo img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+.logo h1 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  background: linear-gradient(135deg, #f6a942, #f09018);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 22px;
+  text-align: center;
+}
+
+/* ── Toolbar ── */
+
+.toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 7px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.search-wrap svg {
+  position: absolute;
+  left: 9px;
+  width: 14px; height: 14px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+#search {
+  width: 100%;
+  padding: 7px 9px 7px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 12px;
+  outline: none;
+}
+#search:focus { border-color: var(--accent); }
+.toolbar select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 6px 7px;
+  cursor: pointer;
+  outline: none;
+}
+.toolbar select:focus { border-color: var(--accent); }
+
+/* ── Bulk actions ── */
+
+.actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+.select-all input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+
+.primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.primary-btn svg { width: 14px; height: 14px; }
+.primary-btn:hover:not(:disabled) { background: var(--accent-hover); }
+.primary-btn:active:not(:disabled) { transform: scale(.97); }
+.primary-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ── Grid (two columns) ── */
+
+.grid {
+  flex: 1 1 0;
+  min-height: 0;          /* required so overflow-y actually scrolls inside flex */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  padding: 11px 12px;
+  align-content: start;
+}
+.grid::-webkit-scrollbar { width: 6px; }
+.grid::-webkit-scrollbar-track { background: transparent; }
+.grid::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 3px; }
+.grid::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+/* ── Image tile ── */
+
+.tile {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;       /* bullet-proof square: height == column width, load or not */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    linear-gradient(45deg, #1c2230 25%, transparent 25%, transparent 75%, #1c2230 75%),
+    linear-gradient(45deg, #1c2230 25%, #161b22 25%, #161b22 75%, #1c2230 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s;
+}
+.tile:hover { border-color: rgba(240,144,24,.5); }
+.tile.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.tile-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fill the square; full image stays recognisable */
+  background: transparent;
+}
+
+/* dim images that fail to load */
+/* hide failed/blocked images so the square shows a clean checker instead of a broken icon */
+.tile-img.broken { display: none; }
+
+/* Checkbox (top-left) */
+.tile-check {
+  position: absolute;
+  top: 6px; left: 6px;
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.tile.selected .tile-check {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.tile-check svg { width: 13px; height: 13px; color: #fff; opacity: 0; }
+.tile.selected .tile-check svg { opacity: 1; }
+
+/* Per-image download button (top-right) */
+.tile-dl {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 26px; height: 26px;
+  border: none;
+  border-radius: 7px;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .15s, background .15s, transform .1s;
+}
+.tile:hover .tile-dl { opacity: 1; }
+.tile-dl:hover { background: var(--accent); }
+.tile-dl:active { transform: scale(.9); }
+.tile-dl svg { width: 14px; height: 14px; }
+.tile-dl.done { background: var(--success); opacity: 1; }
+
+/* Dimensions label (bottom) */
+.tile-meta {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 4px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.72));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+.tile-ext {
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: .4px;
+}
+
+/* ── States ── */
+
+.state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  gap: 10px;
+}
+.state svg { width: 48px; height: 48px; color: var(--text-tertiary); opacity: .6; }
+.state p { font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+.state span { font-size: 12px; color: var(--text-tertiary); line-height: 1.45; }
+
+.spinner {
+  width: 30px; height: 30px;
+  border: 3px solid var(--bg-tertiary);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
