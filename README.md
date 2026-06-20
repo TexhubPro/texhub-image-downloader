@@ -14,29 +14,29 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- **🖼️ Full page scan** — collects images from `<img>`, `srcset`, CSS backgrounds and
-  image links, across the page and its frames.
-- **🔲 Two-column preview grid** — every image as a thumbnail with its real
-  dimensions and format.
-- **🔎 Filter & sort** — filter by URL text and by size (small / medium / large),
-  sort **largest first**, **smallest first**, or page order. Sorting refines itself as
-  real image dimensions load in.
-- **☑️ Multi-select + bulk download** — tick the images you want (or **Select all**)
-  and **Download selected** saves them together.
-- **⬇️ One-click per image** — each thumbnail has its own download button; click it and
-  the image saves instantly.
-- **🖱️ On-page hover button** — hover any image on a web page and a TexHub button
-  appears; one click saves it in the **highest quality available** (resolved from a
-  parent link, `data-*` full-res attributes or `srcset`), even when only a small
-  thumbnail is shown.
-- **🗂️ Tidy output** — batches are saved into `TexHub Images/<site>/` inside your
-  Downloads folder.
-- **🔐 Private & lightweight** — no background tracking, no data collection, minimal
-  permissions.
+- **Full page scan** — collects images from `<img>`, `srcset`, CSS backgrounds and
+ image links, across the page and its frames.
+- **Two-column preview grid** — every image as a thumbnail with its real
+ dimensions and format.
+- **Filter & sort** — filter by URL text and by size (small / medium / large),
+ sort **largest first**, **smallest first**, or page order. Sorting refines itself as
+ real image dimensions load in.
+- **Multi-select + bulk download** — tick the images you want (or **Select all**)
+ and **Download selected** saves them together.
+- **One-click per image** — each thumbnail has its own download button; click it and
+ the image saves instantly.
+- **On-page hover button** — hover any image on a web page and a TexHub button
+ appears; one click saves it in the **highest quality available** (resolved from a
+ parent link, `data-*` full-res attributes or `srcset`), even when only a small
+ thumbnail is shown.
+- **Tidy output** — batches are saved into `TexHub Images/<site>/` inside your
+ Downloads folder.
+- **Private & lightweight** — no background tracking, no data collection, minimal
+ permissions.
 
-## 🚀 Install (developer mode)
+## Install (developer mode)
 
 1. Open `chrome://extensions`
 2. Enable **Developer mode** (top-right)
@@ -45,14 +45,14 @@
 
 > Works in Chrome, Edge, Brave and other Chromium browsers.
 
-## 🧭 How to use
+## How to use
 
 1. Open a page with images and click the TexHub toolbar icon.
 2. Use the toolbar to filter (by URL or size) and sort the previews.
 3. Click thumbnails to select them, or use **Select all**.
-4. Hit **Download selected** — or click the ⬇ button on any single image.
+4. Hit **Download selected** — or click the button on any single image.
 
-## 🗂️ Project structure
+## Project structure
 
 ```
 texhub-image-downloader/
@@ -67,7 +67,7 @@ texhub-image-downloader/
         └── utils.js         # Shared helpers (filenames, sizes, escaping)
 ```
 
-## 🔐 Permissions
+## Permissions
 
 | Permission | Why it's needed |
 |---|---|
@@ -79,15 +79,15 @@ texhub-image-downloader/
 
 No background tracking, no analytics. See [PRIVACY.md](PRIVACY.md).
 
-## ⚖️ Legal
+## Legal
 
 Only download images you own or are authorised to download. Respect the terms of
 service of the sites you use and applicable copyright law.
 
-## 📄 License
+## License
 
 [MIT](LICENSE) © 2026 **TexHub Pro**
 
-## 📬 Contact
+## Contact
 
 Maintained by **TexHub Pro** — texus.tj@gmail.com

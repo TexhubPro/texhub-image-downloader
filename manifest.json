@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TexHub Image Downloader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Find and download all images on any page. Preview in a grid, filter and sort by size, select multiple and download in one click.",
   "icons": {
     "16": "icons/icon16.png",
@@ -23,8 +23,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/content/content.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content/content.js"
+      ],
       "run_at": "document_idle"
     }
   ],
